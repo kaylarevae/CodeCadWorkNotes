@@ -1,16 +1,16 @@
 # Operators
-  ##Comparison
+## Comparison 
     == equal to
     === equal value and type
     != not equal
     !== not equal in value or not equal in type
     >< greater than, less than
     >= <= greater than or equal to, less than or equal to
-  ##Logical
+  ## Logical
     && and
     || (double pipes) or
     ! not
-  ##Ternary
+  ## Ternary
     Example
       variablename = (condition) ? value1:value2
       let coffeeCupLevel = (full) ? "No thanks":"Filler up!";
@@ -30,11 +30,12 @@
       - This will execute the body of the function
       - Can call functions as many times as needed
 
-  ## Function Parameters
+# Function Parameters
     **Parameters:** Inputs to functions when a function is declared or defined
       - Used as variables inside the function body
       - When called, will have value of whatever is passed
       - Yes, functions can be defined without parameters
+    
     Example
       // In this case, the parameter is name
       function sayHello(name) {
@@ -50,6 +51,7 @@
       sayThanks('Cole');
 
     **Default parameters:** Have predetermined value in case no argument is passed or undefined is called
+    
     Example
       function greeting (name = 'stranger') {
       console.log(`Hello, ${name}!`)
@@ -70,6 +72,7 @@
       - Give keyword **return**
       - Give value you want returned
         - Undefined will be returned if no value is given
+    
     Example
       function rectangleArea(width, height) {
       if (width < 0 || height < 0) {
@@ -88,7 +91,7 @@
       //**Note** the placement of the curly brackets
 
   ## Functions
-    **Functions:** A reusable set of statements to perform a task or calculate a value
+    **Functions**: A reusable set of statements to perform a task or calculate a value
       - Can be passed one or more values and return a value at the end of execution
       - Must define somewhere in scope where I wish to call it
     Example
@@ -222,30 +225,31 @@
        ----- -----
     Can be refractored into
     const squareNum = num => num * num;
-#Scope
-  ##Block scoped variables
+
+# Scope
+  ## Block scoped variables
     **Block scoped variables:** Only accessible in their blocks or nested blocks, as in const and let
-  ##Global variables
+  ## Global variables
     **Global variables:** Accessible throughout a program. Best practice to keep these to a minimum
-  ##Scope
+  ## Scope
     **Scope:** Refers to where values and functions can be accessed
     Examples
       - Global can be used anywhere
       - File module can only be used in the file 
       - Function can be used only inside the function
       - Code block scope can be used only within a code block aka {} 
-#Arrays
-  ##Arrays
+# Arrays
+  ## Arrays
     JavaScript's way of making lists. Can be ordered and include strings, numbers, booleans
     **Array literal:** creates an array with square brackets []
     Yes arrays can be saved to variables.
-  ##Access elements in an array
+  ## Access elements in an array
     - Arrays in JS are 0 indexed
     - Can access elements or characters
-  ##Update elements in an array
+  ## Update elements in an array
     No const variables cannot be reassigned **but** yes elements within array within const variables are mutatable
     ![Codecademy example of how, depending on let or const variable indicators, elements or arrays can be reassigned](javaScript/images/arraysLetAndConstandReassigningVariables.png)
-  ##Length
+  ## Length
     .length returns number of items in an array
     Example
       const newYearsResolutions = ['Keep a journal', 'Take a falconry class'];
@@ -253,7 +257,7 @@
       console.log(newYearsResolutions.length);
       // Output: 2
       - dot notation, aka chaining a period with the property name
-  ##Push
+  ## Push
     .push() adds items to end of arrays
     - chain with dot notation
     - call it like a function, because it is a function
@@ -261,7 +265,7 @@
       const chores = ['wash dishes', 'do laundry', 'take out trash'];
       chores.push('change laundry' , 'fold clothes');
       console.log(chores);
-  ##Pop
+  ## Pop
     .pop() removes last item of array
     - No does not take arguments
     - Yes can be assigned variable
@@ -274,7 +278,8 @@
       // Output: [ 'item 0', 'item 1' ]
       console.log(removed);
       // Output: item 2
-  ##Index of more arrays
+
+  ## Index of more arrays
     .concat() merges arrays
     .filter() Creates new array with all elements that pass the test from provided function
     .find() Returns the first element in array that satisfies the given function
@@ -288,13 +293,13 @@
       - If no value given, slice will be of whole array
       - No does not mutate
     .indexOf() Returns the index of an element, aka its number in an ordered list
-  ##Arrays and functions
-  ##Nested arrays
+  ## Arrays and functions
+  ## Nested arrays
     Arrays can store other arrays.
     Example
       const nestedArr = [[1], [2, 3]];
-#Loops
-  ##For
+# Loops
+  ## For
     Iterator variable in three expressions
       - Initialization starts the loop and can declare variable
       - Stopping condition: If evaluated to true, block will run, if evaluated to false code will stop 
@@ -309,7 +314,7 @@
         2
         3
       counter++ means it will add one after iteration 
-  ##Loop in reverse
+  ## Loop in reverse
     - Set iterator to highest desired value
     - Set stopping condition to less than desired amount
     - Decrease in intervals after each condition
@@ -317,7 +322,7 @@
       for (let counter = 3; counter >= 0; counter--){
       console.log(counter);
       }
-  ##Loop through arrays 
+  ## Loop through arrays 
     - for loop should use array's .length property in its condition
     Example
     const animals = ['Grizzly Bear', 'Sloth', 'Sea Lion'];
@@ -330,7 +335,7 @@
     Sea Lion
     - Iterator is named i, short hand for index 
     - Elements in arrays are easier in for loops
-  ##Nested loops
+  ## Nested loops
     Example
       const myArray = [6, 19, 20];
       const yourArray = [19, 81, 2];
@@ -343,7 +348,7 @@
       }
       - For each element in the myArray, inner loop will run in entirety, comparing current element from outer array to each element in inner array
       - When match found, prints string to console
-  ##While loop
+  ## While loop
     Example
     // A while loop that prints 1, 2, and 3
     let counterTwo = 1;
@@ -357,7 +362,7 @@
     - This is evaluated before each round. If true, block runs. If false, loop stops
     - Code block prints counterTwo to console and increments counterTwo
     "Think of eating like a while loop: when you start taking bites, you don’t know the exact number you’ll need to become full. Rather you’ll eat while you’re hungry. In situations when we want a loop to execute an undetermined number of times, while loops are the best choice."
-  ##Do..While loop
+  ## Do..While loop
     Run code at least once and continue until condition is no longer met
     Example
       let countString = '';
@@ -370,7 +375,7 @@
       
       console.log(countString);
       **Different from while because do..while will run at least once
-  ##Break
+  ## Break
     Allows programs to break from the loop from within the loop's block
     Example
       for (let i = 0; i < 99; i++) {
@@ -385,9 +390,11 @@
   Higher-order function: Accepts functions as parameters, returns a function, or both
   Callback functions: Functions that get passed as parameters
   Anonymous functions can be arguments.
-#Iterators
-  Iteration methods aka iterators are methods called on arrays to manipulate elements and return values 
-  Examples
+
+# Iterators
+  ## Iteration methods
+    aka iterators are methods called on arrays to manipulate elements and return values 
+    Examples
     .forEach() executes the same code for each element of an array
       - Can use arrow function syntax
       - Can define a function beforehand to be used as the callback function.
