@@ -420,3 +420,17 @@
           - shortWords declares new variable that will store returned array
           - Callback is arrow function with single paramenter and each element in words array is passed here as argument
           - word.length < 6; is condition in callback function and if any word has fewer than 6 characters it will be added to shortWords array
+    .findIndex() returns the index of the first element that evaluates to **true** in the callback function.
+      
+      Example
+        const jumbledNums = [123, 25, 78, 5, 9]; 
+        const lessThanTen = jumbledNums.findIndex(num => {
+          return num < 10;
+        });
+      - jumbledNums contains elements of numbers
+      - const lessThanTen = declares the new variable that stores return of invoking .findIndex()
+      - callback function is arrow function with num as a single parameter
+      - num < 10; is the condition the elements are checked against
+      - If no conditions are met, -1 is returned
+    
+    .reduce() returns a singl
