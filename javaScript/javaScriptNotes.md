@@ -420,6 +420,7 @@
           - shortWords declares new variable that will store returned array
           - Callback is arrow function with single paramenter and each element in words array is passed here as argument
           - word.length < 6; is condition in callback function and if any word has fewer than 6 characters it will be added to shortWords array
+
     .findIndex() returns the index of the first element that evaluates to **true** in the callback function.
       
       Example
@@ -433,4 +434,151 @@
       - num < 10; is the condition the elements are checked against
       - If no conditions are met, -1 is returned
     
-    .reduce() returns a singl
+    .reduce() returns a single value after iterating through the elements of an array, aka reducing it
+      Example
+        const numbers = [1, 2, 4, 10];
+ 
+        const summedNums = numbers.reduce((accumulator, currentValue) => {
+          return accumulator + currentValue
+        })
+        
+        console.log(summedNums) // Output: 17
+      Explanation
+      - **numbers** is an array that contains numbers
+      - **summedNums** is a variable that stores the returned value of invoking .reduce on numbers array
+      - numbers.reduce() calls the .reduce() method on the numbers array and takes in a callback function as argument
+      - There are two parameters: **accumulator** and **currentValue** - accumulator starts off as the value in the first element in the array and the currentValue starts as the second element. 
+      - As .reduce() iterates trhough, the return value of the callback function becomes the accumulator value for the next iteration, currentValue takes on the value of the current element in the looping process.
+  
+    .reduce() can take on an optional second parameter.
+      Example
+        const numbers = [1, 2, 4, 10];
+ 
+        const summedNums = numbers.reduce((accumulator, currentValue) => {
+          return accumulator + currentValue
+        }, 100)  // <- Second argument for .reduce()
+        
+        console.log(summedNums); // Output: 117
+  ## Iterator Documentation
+    See a complete list here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Iteration_methods
+
+# Objects
+  There are only **seven** fundamental data types in JavaScript:
+  Primative:
+    - String
+    - Number
+    - Boolean
+    - Null
+    - Undefined
+    - Symbol
+  #7 is OBJECTS
+  ## Object Literals
+    Data is organized into key-value pairs
+    Formatting
+    - Quotations are needed for special characters
+    - Space is a special character
+    Dot notation
+    Bracket notation is needed to access numbers, spaces, and special characters
+  ## Property Assignment
+  Objects are **mutatable** so we can update after creation
+
+  object ['Property Name'] = 'value';
+  object.propertyName = 'value';
+
+  const objects cannot be reassigned but can be mutated
+
+  properties can be dleted with delete operator
+  Example
+    delete spaceship['Secret Mission'];
+    delete object['Name of Property'];
+  ## Method
+  A **property** is what an object has and **method** is what it does
+  - Console and Math are global JavaScipt objects
+  - .log and .floor are global methods
+  Example
+  ```javascript
+  const alienShip = {
+    invade () { 
+      console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+    }
+    };
+  ```
+  ## Looping through objects
+  For..in executes a code for each property in an object
+  Example
+  ```javascript
+  for (let variableName in outerObject.innerObject) {
+  console.log(`${variableName}: ${outerObject.innerObject[variableName].propertyName}`)
+  };
+  ```
+  ## This keyword
+  References the calling object with provides access to the calling object's properties
+  ## This and arrow functions
+  ## Privacy
+  _ before a property name means the property should not be altered
+  ## Getters
+  Methods that get and return the internal properties of an object
+  Example
+  ```javascript
+    const person = {
+    _firstName: 'John',
+    _lastName: 'Doe',
+    get fullName() {
+    if (this._firstName && this._lastName){
+      return `${this._firstName} ${this._lastName}`;
+    } else {
+      return 'Missing a first name or a last name.';
+    }
+    }
+    } 
+ 
+    // To call the getter method: 
+    person.fullName; // 'John Doe'
+    ```
+  Explanation
+  - **get** keyword is followed by a function
+  - **else..if** conditional checks that both _firstName and _lastName exist and then return a different value depending on the result
+  - Use **this** keyword to call object's internal properties
+
+  Getters can
+  - Perform and action on the data when getting a property
+  - Return different values using conditionals
+  - Access properties of the calling object using **this**
+  - Make the functionality of code easier to understand by other developers
+  ## Setters
+  Reassign values of existing properties within an object
+  Example
+  ```javascript
+    const person = {
+    _age: 37,
+    set age(newAge){
+      if (typeof newAge === 'number'){
+        this._age = newAge;
+      } else {
+        console.log('You must assign a number to age');
+      }
+    }
+  };
+  ```
+  Explanation
+  - We can check what value is assigned to this._age
+  - Only values that are numbers can reassign this._age
+  - There are different outputs depending on values used to reassign
+  ## Factory functions
+  Returns an object and can be reused to make multiple object instances
+  Example
+  ```javascript
+  const monsterFactory = (name, age, energySource, catchPhrase) => {
+  return { 
+    name: name,
+    age: age, 
+    energySource: energySource,
+    scare() {
+      console.log(catchPhrase);
+    } 
+    }
+  };
+  ```
+  ## Built in Object Methods
+  Documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods
+  
